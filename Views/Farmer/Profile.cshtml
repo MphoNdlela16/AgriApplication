@@ -1,0 +1,50 @@
+﻿@model IEnumerable<Agri_Energy_Connect.Models.Product>
+
+@{
+    ViewData["Title"] = "Farmer Profile";
+}
+
+<h1>Your Products</h1>
+<a asp-action="Create" class="text-decoration-underline">Add New Product</a>
+
+<div class="row mt-3">
+    @foreach (var product in Model)
+    {
+        <div class="col-md-4 mb-3">
+            <div class="card h-100">
+                <div class="card-body">
+                    <h5 class="card-title">@product.Name</h5>
+                    <a href="javascript:void(0)" class="text-decoration-underline" onclick="toggleDetails('details-@product.ProductId')">View Details</a>
+                    <div id="details-@product.ProductId" style="display:none;">
+                        <p><strong>Category:</strong> @product.Category</p>
+                        <p><strong>Production Date:</strong> @product.ProductionDate.ToString("d")</p>
+                        <a asp-action="Edit" asp-route-id="@product.ProductId" class="text-decoration-underline">Edit</a> |
+                        <a asp-action="Delete" asp-route-id="@product.ProductId" class="text-decoration-underline">Delete</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    }
+</div>
+
+@section Scripts {
+    <script>
+        function toggleDetails(id) {
+            var element = document.getElementById(id);
+            if (element.style.display === "none") {
+                element.style.display = "block";
+            } else {
+                element.style.display = "none";
+            }
+        }
+
+        function toggleForm(id) {
+            var element = document.getElementById(id);
+            if (element.style.display === "none") {
+                element.style.display = "block";
+            } else {
+                element.style.display = "none";
+            }
+        }
+    </script>
+}

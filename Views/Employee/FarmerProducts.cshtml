@@ -1,0 +1,63 @@
+﻿@model IEnumerable<Agri_Energy_Connect.Models.Product>
+
+@{
+    ViewData["Title"] = "Farmer Products";
+}
+
+<h1>Farmer Products</h1>
+
+<form method="get" asp-action="FarmerProducts">
+    <div class="form-group">
+        <label>Start Date:</label>
+        <input type="date" name="startDate" class="form-control" />
+    </div>
+    <div class="form-group">
+        <label>End Date:</label>
+        <input type="date" name="endDate" class="form-control" />
+    </div>
+    <div class="form-group">
+        <label>Category:</label>
+        <input type="text" name="category" class="form-control" />
+    </div>
+    <input type="hidden" name="farmerId" value="@ViewData["FarmerId"]" />
+    <div class="form-group">
+        <input type="submit" value="Filter" class="btn btn-primary" />
+    </div>
+</form>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.First().Name)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.First().Category)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.First().ProductionDate)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Name)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Category)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.ProductionDate)
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
+
+<div>
+    <a asp-action="Index">Back to List</a>
+</div>

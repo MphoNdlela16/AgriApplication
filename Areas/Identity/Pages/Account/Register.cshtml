@@ -1,0 +1,158 @@
+﻿@page
+@model RegisterModel
+@{
+    ViewData["Title"] = "Register";
+}
+
+<style>
+    body {
+        font-family: 'Montserrat', sans-serif;
+        background-color: #f8f9fa;
+        background-image: url('https://static1.thetravelimages.com/wordpress/wp-content/uploads/2022/09/Skagit-Valley-tulip-farm.jpg?q=50&fit=contain&w=1140&h=&dpr=1.5');
+        background-size: cover;
+        background-position: center;
+    }
+
+    h1, h2 {
+        color: #333;
+    }
+
+    .form-control {
+        border-radius: 4px;
+        border: 1px solid #ccc;
+        padding: 8px 12px;
+    }
+
+    .btn-primary {
+        background-color: #28a745;
+        border-color: #28a745;
+        color: #fff;
+        transition: all 0.3s ease;
+    }
+
+        .btn-primary:hover {
+            background-color: #218838;
+            border-color: #1e7e34;
+            transform: translateY(-2px);
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+        }
+
+    .btn-outline-light {
+        color: #28a745;
+        border-color: #28a745;
+        transition: all 0.3s ease;
+    }
+
+        .btn-outline-light:hover {
+            background-color: #28a745;
+            color: #fff;
+            transform: translateY(-2px);
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+        }
+
+    .text-muted {
+        color: #6c757d !important;
+    }
+
+    .login-card {
+        background-color: rgba(255, 255, 255, 0.9);
+        border-radius: 10px;
+        box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+        padding: 40px;
+        max-width: 500px;
+        margin: 100px auto;
+    }
+
+        .login-card .card-header {
+            background-color: transparent;
+            border-bottom: none;
+            padding-bottom: 0;
+        }
+
+        .login-card .card-body {
+            padding-top: 0;
+        }
+
+        .login-card h1 {
+            font-weight: 700;
+            margin-bottom: 30px;
+            text-align: center;
+        }
+
+        .login-card h2 {
+            font-weight: 600;
+            margin-bottom: 20px;
+        }
+
+        .login-card .form-group {
+            margin-bottom: 20px;
+        }
+
+        .login-card .form-control {
+            background-color: #f8f9fa;
+        }
+
+        .login-card .btn-block {
+            border-radius: 30px;
+            padding: 12px 30px;
+            font-weight: 600;
+        }
+
+        .login-card .text-muted {
+            text-align: center;
+            margin-top: 20px;
+        }
+
+            .login-card .text-muted a {
+                color: #6c757d;
+                text-decoration: none;
+                transition: all 0.3s ease;
+            }
+
+                .login-card .text-muted a:hover {
+                    color: #28a745;
+                }
+</style>
+
+<div class="login-card">
+    <div class="card-header">
+        <h1>@ViewData["Title"]</h1>
+    </div>
+    <div class="card-body">
+        <form id="registerForm" asp-route-returnUrl="@Model.ReturnUrl" method="post">
+            <h2>Create a new farmer account.</h2>
+            <hr />
+            <div asp-validation-summary="ModelOnly" class="text-danger" role="alert"></div>
+            <div class="form-group mb-3">
+                <label asp-for="Input.Name" class="form-label">Name</label>
+                <input asp-for="Input.Name" class="form-control" autocomplete="name" aria-required="true" placeholder="Your full name" />
+                <span asp-validation-for="Input.Name" class="text-danger"></span>
+            </div>
+            <div class="form-group mb-3">
+                <label asp-for="Input.Email" class="form-label">Email</label>
+                <input asp-for="Input.Email" class="form-control" autocomplete="username" aria-required="true" placeholder="name@example.com" />
+                <span asp-validation-for="Input.Email" class="text-danger"></span>
+            </div>
+            <div class="form-group mb-3">
+                <label asp-for="Input.PhoneNumber" class="form-label">Phone Number</label>
+                <input asp-for="Input.PhoneNumber" class="form-control" autocomplete="tel" aria-required="true" placeholder="Your phone number" />
+                <span asp-validation-for="Input.PhoneNumber" class="text-danger"></span>
+            </div>
+            <div class="form-group mb-3">
+                <label asp-for="Input.Password" class="form-label">Password</label>
+                <input asp-for="Input.Password" class="form-control" autocomplete="new-password" aria-required="true" placeholder="Password" />
+                <span asp-validation-for="Input.Password" class="text-danger"></span>
+            </div>
+            <div class="form-group mb-3">
+                <label asp-for="Input.ConfirmPassword" class="form-label">Confirm Password</label>
+                <input asp-for="Input.ConfirmPassword" class="form-control" autocomplete="new-password" aria-required="true" placeholder="Confirm Password" />
+                <span asp-validation-for="Input.ConfirmPassword" class="text-danger"></span>
+            </div>
+            <button id="registerSubmit" type="submit" class="btn btn-primary btn-block">Register</button>
+        </form>
+    </div>
+</div>
+
+@section Scripts {
+    <partial name="_ValidationScriptsPartial" />
+}

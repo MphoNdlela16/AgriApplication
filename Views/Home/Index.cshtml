@@ -1,0 +1,113 @@
+﻿@{
+    ViewData["Title"] = "Home Page";
+}
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+<style>
+    .jumbotron {
+        background-image: url('https://static1.thetravelimages.com/wordpress/wp-content/uploads/2022/09/Skagit-Valley-tulip-farm.jpg?q=50&fit=contain&w=1140&h=&dpr=1.5'); /* Unsplash image */
+        background-size: cover;
+        background-position: center;
+        color: #fff;
+        padding: 4rem;
+        margin-top: 2rem;
+        text-shadow: 0 0 10px rgba(0, 0, 0, 0.5); /* Add text shadow for better readability */
+    }
+
+        .jumbotron h1 {
+            font-size: 3.5rem;
+            font-weight: bold;
+        }
+
+        .jumbotron p {
+            font-size: 1.25rem;
+            margin-top: 1rem;
+        }
+
+        .jumbotron a {
+            color: #fff;
+            text-decoration: underline;
+        }
+
+            .jumbotron a:hover {
+                color: #f8f9fa;
+            }
+
+        .jumbotron ul li {
+            font-size: 1.1rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .jumbotron .btn {
+            margin: 1rem 0.5rem;
+        }
+
+    .testimonial img {
+        width: 100px;
+        height: 100px;
+        border-radius: 50%; /* Creates a circular image */
+        object-fit: cover; /* Ensures the image fills the circle while maintaining aspect ratio */
+        margin-bottom: 1rem;
+    }
+
+    .testimonial .name {
+        font-weight: bold;
+        margin-bottom: 0.5rem;
+    }
+</style>
+
+<div class="jumbotron text-center">
+    <div class="container">
+        <h1 class="display-4">Welcome to Agri Energy Connect</h1>
+        <p class="lead">Empowering Sustainable Agriculture with Renewable Energy</p>
+        <hr class="my-4">
+        <p>Join our community to:</p>
+        <div class="row">
+            <div class="col-md-6">
+                <ul class="list-unstyled">
+                    <li><i class="fas fa-seedling"></i> Explore best practices in sustainable farming</li>
+                    <li><i class="fas fa-solar-panel"></i> Discover green energy solutions for agriculture</li>
+                </ul>
+            </div>
+            <div class="col-md-6">
+                <ul class="list-unstyled">
+                    <li><i class="fas fa-graduation-cap"></i> Access educational resources and training</li>
+                    <li><i class="fas fa-handshake"></i> Collaborate on projects and funding opportunities</li>
+                </ul>
+            </div>
+        </div>
+        <a href="Identity/Account/Register" class="btn btn-primary btn-lg">Sign Up</a>
+        <a href="Identity/Account/Login" class="btn btn-outline-light btn-lg">Login</a>
+    </div>
+</div>
+
+
+<div class="testimonials">
+    <div class="container">
+        <h2>What Our Members Say</h2>
+        <div class="row">
+            <div class="col-md-4">
+                <div class="testimonial">
+                    <img src="https://media.licdn.com/dms/image/D4D03AQHYSGtq8VOslQ/profile-displayphoto-shrink_200_200/0/1710094803991?e=1722470400&v=beta&t=BzuwQgMC5qvVZR8PlR9YKWxNil_d8U3VyV-xSQXed6M" alt="John Doe">
+                    <p class="quote">"Agri Energy Connect has transformed my farm. I've reduced costs and increased yields with renewable energy."</p>
+                    <p class="name">- Mpho Ndlela, Farmer</p>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="testimonial">
+                    <img src="https://media.licdn.com/dms/image/D4D03AQHI_NoiU-VqJw/profile-displayphoto-shrink_400_400/0/1705055843973?e=1722470400&v=beta&t=o6WJZuUTqKge1-xSsj09mzV2VD1sBXttNS9bzHGaIqg" alt="Jane Smith">
+                    <p class="quote">"The educational resources and networking opportunities are invaluable for anyone interested in sustainable agriculture."</p>
+                    <p class="name">- Anele Siwela, Agronomist</p>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="testimonial">
+                    <img src="https://media.licdn.com/dms/image/D5603AQHhjtgvN6VKHQ/profile-displayphoto-shrink_100_100/0/1713450059841?e=1722470400&v=beta&t=issu4iHS1LfmxH6W0BdwatUyKiR7BvKMgloIH-8tl_c" alt="Sarah Johnson">
+                    <p class="quote">"Agri Energy Connect is leading the way in the transition to a greener and more profitable agricultural sector."</p>
+                    <p class="name">- Lucian Young, Sustainability Consultant</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

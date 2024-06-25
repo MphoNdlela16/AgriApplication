@@ -1,0 +1,77 @@
+﻿@model IEnumerable<Agri_Energy_Connect.Models.Product>
+@{
+    ViewData["Title"] = "Home Page - Logged In";
+}
+
+<style>
+    .featured-products {
+        background-color: #f8f9fa;
+        padding: 2rem 0;
+    }
+
+        .featured-products h2 {
+            font-weight: bold;
+            color: #28a745;
+            margin-bottom: 2rem;
+        }
+
+    .product-card {
+        border: none;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        transition: all 0.3s ease-in-out;
+    }
+
+        .product-card:hover {
+            box-shadow: 0 0 20px rgba(0, 0, 0, 0.2);
+            transform: translateY(-5px);
+        }
+
+        .product-card .card-img-top {
+            height: 200px;
+            object-fit: cover;
+        }
+
+        .product-card .card-body {
+            padding: 1.25rem;
+        }
+
+        .product-card .card-title {
+            font-weight: bold;
+            color: #28a745;
+            margin-bottom: 0.5rem;
+        }
+
+        .product-card .card-text {
+            color: #555;
+            margin-bottom: 0.25rem;
+        }
+</style>
+
+<div class="jumbotron text-center">
+    <div class="container">
+        <h1 class="display-4">Welcome Back!</h1>
+        <p class="lead">Explore some of our top products listed by our farmers.</p>
+    </div>
+</div>
+
+<div class="featured-products">
+    <div class="container">
+        <h2 class="text-center">Featured Products</h2>
+        <div class="row">
+            @foreach (var product in Model.Take(3))
+            {
+                <div class="col-md-4 mb-4">
+                    <div class="card product-card">
+                        <img src="https://source.unsplash.com/random/?@product.Name/400x200?sig=@(product.ProductId)" class="card-img-top" alt="@product.Name">
+                        <div class="card-body">
+                            <h5 class="card-title">@product.Name</h5>
+                            <p class="card-text">Category: @product.Category</p>
+                            <p class="card-text">Farmer: @product.Farmer.Name</p>
+                            <p class="card-text">Production Date: @product.ProductionDate.ToShortDateString()</p>
+                        </div>
+                    </div>
+                </div>
+            }
+        </div>
+    </div>
+</div>

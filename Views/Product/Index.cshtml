@@ -1,0 +1,31 @@
+﻿@model IEnumerable<Agri_Energy_Connect.Models.Product>
+
+@{
+    ViewData["Title"] = "Marketplace Products";
+}
+
+<h1>Marketplace Products</h1>
+
+<div class="row">
+    @foreach (var item in Model)
+    {
+        <div class="col-md-4 mb-3">
+            <div class="card">
+                <div class="card-body">
+                    <h5 class="card-title">@item.Name</h5>
+                    <p class="card-text">Category: @item.Category</p>
+                    <p class="card-text">Production Date: @item.ProductionDate.ToShortDateString()</p>
+                    <p class="card-text">Seller Email: @item.Farmer.Email</p>
+                    <a href="@Url.Action("Details", new { id = item.ProductId })" class="btn btn-primary">Details</a>
+                    @if (User.Identity != null && User.Identity.IsAuthenticated && User.IsInRole("Employee"))
+                    {
+                        <a href="@Url.Action("Edit", new { id = item.ProductId })" class="btn btn-secondary">Edit</a>
+                        <a href="@Url.Action("Delete", new { id = item.ProductId })" class="btn btn-danger">Delete</a>
+                    }
+                </div>
+            </div>
+        </div>
+    }
+</div>
+
+<a asp-action="Create" class="btn btn-primary">Add New Product</a>
